@@ -7,7 +7,7 @@ int main()
     std::cin >> row; // строки
     std::cin >> col; // столбцы
     int** mtrx = new int* [row];
-    for (int i = 0; i < col; i++)
+    for (int i = 0; i < row; i++)
     {
         mtrx[i] = new int[col];
         for (int j = 0; j < col; j++)
