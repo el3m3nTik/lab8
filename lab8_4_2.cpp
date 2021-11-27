@@ -1,10 +1,10 @@
 ﻿#include <iostream>
 
-//функция для поиска первого числа в зависимости от разряда числа
+
 int firstnum(int n);
 
-//функция для произведения цифр числа
-int proizv(int n);
+//Функция для произведения цифр числа
+int matpr(int n);
 
 int main()
 {
@@ -14,7 +14,7 @@ int main()
     for (int i = 0; i < n; i++) {
         std::cin >> array[i];
     }
-    //сортировка по 1 числу
+    //Сортировка по 1 числу
     for (int i = 0; i < n; i++) {
         for (int j = i + 1; j < n; j++) {
             if (firstnum(array[i]) > firstnum(array[j])) {
@@ -22,27 +22,27 @@ int main()
             }
         }
     }
-    //сортировка по произведению для одинаковых 1 чисел
+    //Сортировка по произведению для одинаковых 1 чисел
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (firstnum(array[i]) == firstnum(array[j])) {
-                if (proizv(array[i]) < proizv(array[j])) {
+                if (matpr(array[i]) < matpr(array[j])) {
                     std::swap(array[i], array[j]);
                 }
             }
         }
     }
-    //сортировка по одинаковым числам и произведениям
+    //Сортировка по одинаковым числам и произведениям
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            if (firstnum(array[i]) == firstnum(array[j]) && proizv(array[i]) == proizv(array[j])) {
+            if (firstnum(array[i]) == firstnum(array[j]) && matpr(array[i]) == matpr(array[j])) {
                 if (array[i] > array[j]) {
                     std::swap(array[i], array[j]);
                 }
             }
         }
     }
-    //вывод
+ 
     for (int i = 0; i < n; i++) {
         std::cout << array[i] << " ";
     }
@@ -50,7 +50,7 @@ int main()
     return 0;
 }
 
-int proizv(int n) 
+int matpr(int n) 
 {
     if (n >= 0 && n < 10) {
         return n;
